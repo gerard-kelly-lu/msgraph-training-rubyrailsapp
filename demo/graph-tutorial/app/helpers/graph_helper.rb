@@ -24,7 +24,7 @@ module GraphHelper
     get_events_url = '/v1.0/me/events'
 
     query = {
-      '$select': 'subject,organizer,start,end',
+      '$select': 'subject,organizer,start,end,onlineMeeting',
       '$orderby': 'createdDateTime DESC'
     }
 

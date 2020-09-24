@@ -21,6 +21,7 @@
       <th scope="col">Subject</th>
       <th scope="col">Start</th>
       <th scope="col">End</th>
+      <th scope="col">Teams Meeting</th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +31,13 @@
         <td><%= event['subject'] %></td>
         <td><%= event['start']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
         <td><%= event['end']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
+        <td>
+          <% if teams_url = event.dig('onlineMeeting', 'joinUrl') %>
+            <a href="<%= teams_url %>" target="_blank">Go to meeting</a>
+          <% else %>
+            N/A
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
