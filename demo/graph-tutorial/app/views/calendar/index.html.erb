@@ -2,7 +2,18 @@
      Licensed under the MIT License. -->
 
 <!-- <CalendarSnippet> -->
-<h1>Calendar</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>Calendar</h1>
+    </div>
+    <div class="col-6 text-right">
+      <%= link_to "Add New Meeting", new_meetings_path, class: "btn btn-primary btn-large pull-right" %>
+    </div>
+  </div>
+</div>
+
+
 <table class="table">
   <thead>
     <tr>

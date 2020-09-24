@@ -1,0 +1,46 @@
+<h1>Add a meeting</h1>
+
+<%= form_for :meeting, url: meetings_path, method: :post do |f|%>
+  <div class="form-group">
+    <label>Meeting Name</label>
+    <%= f.text_field :meeting_name, class: 'form-control', value: 'ILT Demo' %>
+  </div>
+
+  <div class="form-group">
+    <label>Start Time</label>
+    <%= f.datetime_field :start_time, class: 'form-control', value: Time.zone.now.iso8601 %>
+  </div>
+
+  <div class="form-group">
+    <label>Finish Time</label>
+    <%= f.datetime_field :finish_time, class: 'form-control', value: (Time.zone.now + 1.hour).iso8601 %>
+  </div>
+
+  <h4>Attendee 1</h4>
+  <div class="form-group">
+    <%= f.email_field :attendee_1_email, class: 'form-control', placeholder: 'Email' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :attendee_1_name, class: 'form-control', placeholder: 'Name' %>
+  </div>
+
+  <h4>Attendee 2</h4>
+  <div class="form-group">
+    <%= f.email_field :attendee_2_email, class: 'form-control', placeholder: 'Email' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :attendee_2_name, class: 'form-control', placeholder: 'Name' %>
+  </div>
+
+  <h4>Attendee 3</h4>
+  <div class="form-group">
+    <%= f.email_field :attendee_3_email, class: 'form-control', placeholder: 'Email' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :attendee_3_name, class: 'form-control', placeholder: 'Name' %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary btn-large" %>
+<% end %>
+
